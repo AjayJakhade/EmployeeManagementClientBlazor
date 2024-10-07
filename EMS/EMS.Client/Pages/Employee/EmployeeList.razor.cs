@@ -13,8 +13,8 @@ namespace EMS.Client.Pages.Employee
 {
     public partial class EmployeeList
     {
-       
 
+        [SupplyParameterFromForm] private EmployeeSearch EmployeeSearch { get; set; } = new();
         [Inject] private IEmployeeService _employeeService { get; set; }
         private FormMessage frmMessage { get; set; } = new();
         private IEnumerable<EmployeeModel> objemployee { get; set; }
@@ -43,7 +43,7 @@ namespace EMS.Client.Pages.Employee
         }
         private async Task FnEmployeeSearch()
         {
-            var data = await _employeeService.GetEmployee();
+            var data = await _employeeService.GetEmployee(EmployeeSearch);
             if (data != null && data.isSuccess)
             {
                 objemployee = JsonSerializer.Deserialize<IEnumerable<EmployeeModel>>(data.result.ToString());

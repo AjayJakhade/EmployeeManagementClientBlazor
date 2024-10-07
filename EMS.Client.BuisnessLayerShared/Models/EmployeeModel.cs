@@ -18,4 +18,9 @@ namespace EMS.Client.BuisnessLayerShared.Models
         public int deptId { get; set; }
         public string name { get; set; }
     }
+    public class EmployeeSearch
+    {
+        public string FirstName { get; set; }
+        public string Email { get; set; }
+    }
 }

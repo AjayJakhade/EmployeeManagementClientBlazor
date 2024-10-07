@@ -65,9 +65,9 @@ app.MapPost("/api/context/claim", async (ICommonService method, HttpContext _con
     return resp;
 }).RequireAuthorization();
 
-app.MapPost("/api/GetEmployee", async (IEmployeeService method, HttpContext _context) =>
+app.MapPost("/api/GetEmployee", async (EmployeeSearch employee,IEmployeeService method, HttpContext _context) =>
 {
-    BaseResponse resp = await method.GetEmployee();
+    BaseResponse resp = await method.GetEmployee(employee);
     return resp;
 }).RequireAuthorization();
 app.MapPost("/api/CreateEmployee", async (EmployeeModel employee, IEmployeeService method, HttpContext _context) =>

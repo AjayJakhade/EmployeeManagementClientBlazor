@@ -69,7 +69,7 @@ namespace EMS.Client.Pages.Salary
 
         private async Task fnGetEmployee()
         {
-            var result = await _employeeService.GetEmployee();
+            var result = await _employeeService.GetEmployee(new EmployeeSearch { });
             if (result != null && result.isSuccess)
             {
                 objEMployee = JsonSerializer.Deserialize<IEnumerable<EmployeeModel>>(result.result.ToString());

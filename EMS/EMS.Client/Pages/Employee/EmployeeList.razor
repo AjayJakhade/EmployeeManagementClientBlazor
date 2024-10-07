@@ -25,7 +25,36 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 mb-2">
-          
+            <div class="card card-body border-info p-2">
+                <EditForm Model="EmployeeSearch" FormName="frmSearchPolicy" OnSubmit="FnEmployeeSearch">
+                    <div class="row g-2">
+                        <div class="col-auto">
+
+                            <InputText @bind-Value="EmployeeSearch!.FirstName" class="form-control form-control-sm" placeholder="First Name" />
+
+                        </div>
+
+
+
+                        <div class="col-auto">
+
+                            <InputText @bind-Value="EmployeeSearch!.Email" class="form-control form-control-sm" placeholder="Email" />
+
+                        </div>
+
+
+
+                        <div class="col-auto d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">
+                                <span class="material-symbols-outlined align-top">
+                                    search
+                                </span>
+                                Search
+                            </button>
+                        </div>
+                    </div>
+                </EditForm>
+            </div>
         </div>
         <div class="col-12">
             @if (permission.canGet)

@@ -75,13 +75,13 @@ namespace EMS.Client.Application.Services.Employee
             return response;
         }
 
-        public async Task<BaseResponse> GetEmployee()
+        public async Task<BaseResponse> GetEmployee(EmployeeSearch employee)
         {
             BaseResponse response = new BaseResponse();
             try
             {
-
-                response = await _callServices.GetRequest(CallServices.ServiceCallPurpose.GetEmployee, "");
+                string b = "FirstName=" + employee.FirstName + "&Email=" + employee.Email;
+                response = await _callServices.GetRequest(CallServices.ServiceCallPurpose.GetEmployee, b.ToString());
             }
             catch (Exception ex)
             {

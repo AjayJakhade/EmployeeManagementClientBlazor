@@ -29,9 +29,9 @@ namespace EMS.Client.Proxy.Employee
             return resp;
         }
 
-        public async Task<BaseResponse> GetEmployee()
+        public async Task<BaseResponse> GetEmployee(EmployeeSearch employee)
         {
-            var data = await httpClient.PostAsJsonAsync("/api/GetEmployee", "");
+            var data = await httpClient.PostAsJsonAsync("/api/GetEmployee", employee);
             var content = await data.Content.ReadAsStringAsync();
             var resp = JsonSerializer.Deserialize<BaseResponse>(content);
             return resp;
